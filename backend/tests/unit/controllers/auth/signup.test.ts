@@ -36,6 +36,7 @@ describe("AUTH / signup Controller", () => {
       is2FAEnabled: false,
       is2FAVerified: false,
       isOauth2User: false,
+      isAdmin: false,
     });
     expect(mockUserRepository.findOne).toHaveBeenCalledWith({ email: "test@example.com" });
     expect(mockUserRepository.create).toHaveBeenCalledWith({ email: "test@example.com", password: "hashedPassword123" });

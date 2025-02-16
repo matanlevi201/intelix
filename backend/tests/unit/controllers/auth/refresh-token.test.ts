@@ -1,5 +1,5 @@
 import { refreshToken } from "../../../../src/controllers/auth.controllers";
-import { mockNext, mockRequest, mockResponse } from "../../__mocks__/express";
+import { mockRequest, mockResponse } from "../../__mocks__/express";
 import { NotAuthorizedError, NotFoundError } from "../../../../src/errors";
 import { mockUserRepository } from "../../__mocks__/repositories";
 import { IUserRepository, TYPES } from "../../../../src/types";
@@ -72,6 +72,7 @@ describe("AUTH / refreshToken Controller", () => {
       is2FAEnabled: false,
       is2FAVerified: false,
       isOauth2User: false,
+      isAdmin: false,
     });
 
     expect(mockRes.status).toHaveBeenCalledWith(200);
