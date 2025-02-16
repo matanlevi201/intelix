@@ -20,7 +20,7 @@ describe("AUTH / googleRedirect Controller", () => {
 
     await googleRedirect(mockReq, mockRes, next);
 
-    const userPayload = { id: 123, email: "test@example.com", is2FAEnabled: false, is2FAVerified: false, isOauth2User: true };
+    const userPayload = { id: 123, email: "test@example.com", is2FAEnabled: false, is2FAVerified: false, isOauth2User: true, isAdmin: false };
 
     expect(Tokens.generateRefreshToken).toHaveBeenCalledWith(userPayload);
     expect(Tokens.generateAccessToken).toHaveBeenCalledWith(userPayload);

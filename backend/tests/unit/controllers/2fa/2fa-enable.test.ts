@@ -54,6 +54,7 @@ describe("2FA / enable2fa Controller", () => {
       is2FAEnabled: true,
       is2FAVerified: true,
       isOauth2User: false,
+      isAdmin: false,
     });
     expect(mockUserRepository.findOne).toHaveBeenCalledWith({ id: "123" });
     expect(mockUserRepository.update).toHaveBeenCalledWith("123", { is2FAEnabled: true });

@@ -72,7 +72,6 @@ export const refreshToken = async function (req: Request, res: Response) {
     isOauth2User: currentUser.isOauth2User,
     isAdmin: user.role === UserRole.ADMIN,
   };
-  console.log("testing github workflow");
   const { accessToken } = Tokens.generateAccessToken(payload);
   return res.status(200).send({ accessToken });
 };

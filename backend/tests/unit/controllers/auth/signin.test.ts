@@ -50,6 +50,7 @@ describe("AUTH / signin Controller", () => {
       is2FAEnabled: false,
       is2FAVerified: false,
       isOauth2User: false,
+      isAdmin: false,
     });
     expect(mockUserRepository.findOne).toHaveBeenCalledWith({ email: "test@example.com" });
     expect(mockNext).toHaveBeenCalled();

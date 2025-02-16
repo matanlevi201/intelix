@@ -73,6 +73,7 @@ describe("2FA / verify2fa Controller", () => {
       is2FAEnabled: true,
       is2FAVerified: true,
       isOauth2User: false,
+      isAdmin: false,
     });
     expect(mockUserRepository.findOne).toHaveBeenCalledWith({ id: "123" });
     expect(speakeasy.totp.verify).toHaveBeenCalledWith({ secret: "twoFactorSecret", encoding: "base32", token: "123456" });
