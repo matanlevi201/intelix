@@ -1,0 +1,1 @@
+ALTER TABLE "blacklist" ALTER COLUMN "token" SET DATA TYPE varchar(300);
