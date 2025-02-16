@@ -20,6 +20,9 @@ const envSchema = z.object({
 
 export const env = (() => {
   try {
+    if (process.env.NODE_ENV === "test") {
+      return process.env;
+    }
     return envSchema.parse(process.env);
   } catch (error) {
     if (error instanceof ZodError) {
