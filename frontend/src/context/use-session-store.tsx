@@ -1,6 +1,13 @@
 import { Tokens } from "@/lib/tokens";
-import { SessionState } from "@/types";
+import { CurrentUser } from "@intelix/common";
 import { create } from "zustand";
+
+interface SessionState {
+  accessToken: string | null;
+  currentUser: CurrentUser | null;
+  setSession: (accessToken: string) => void;
+  endSession: () => void;
+}
 
 export const useSessionStore = create<SessionState>((set) => ({
   accessToken: null,

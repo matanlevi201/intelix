@@ -2,7 +2,7 @@ import { AppleIcon, GoogleIcon } from "@/components/common";
 import { Button } from "@/components/ui/button";
 import { CardDescription } from "@/components/ui/card";
 
-export function FormFooter() {
+export function SocialFooter() {
   return (
     <div className="flex flex-col w-full gap-3">
       <CardDescription>

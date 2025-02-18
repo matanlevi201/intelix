@@ -4,11 +4,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { PasswordInput } from "@/components/common";
 import { useSearchParams } from "react-router-dom";
 import { usePassword } from "@/hooks/use-password";
-import { Field } from "@/types/api";
+import { Field } from "@/shared/types";
 import { cn } from "@/lib/utils";
 import { z } from "zod";
 
-export const resetPasswordSchema = z
+const resetPasswordSchema = z
   .object({
     password: z
       .string()
@@ -24,7 +24,7 @@ export const resetPasswordSchema = z
     path: ["confirmPassword"],
   });
 
-export type ResetPasswordSchema = z.infer<typeof resetPasswordSchema>;
+type ResetPasswordSchema = z.infer<typeof resetPasswordSchema>;
 
 export function ResetPasswordForm({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
   const { resetPassword } = usePassword();

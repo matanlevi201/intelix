@@ -1,14 +1,16 @@
 import { Form } from "@/components/common/form/form";
 import { Card, CardContent } from "@/components/ui/card";
 import { usePassword } from "@/hooks/use-password";
-import { Field } from "@/types/api";
+import { Field } from "@/shared/types";
 import { cn } from "@/lib/utils";
+
 import { z } from "zod";
 
 const forgotPasswordSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
 });
-export type ForgotPasswordSchema = z.infer<typeof forgotPasswordSchema>;
+
+type ForgotPasswordSchema = z.infer<typeof forgotPasswordSchema>;
 
 export function ForgotPasswordForm({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
   const { forgotPassword } = usePassword();

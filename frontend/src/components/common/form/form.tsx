@@ -4,7 +4,7 @@ import { FormFields } from "@/components/common/form/form-fields";
 import { Form as FormProvider } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
-import { Field } from "@/types";
+import { Field } from "@/shared/types";
 import { z } from "zod";
 
 interface FormProps<T extends FieldValues> {

@@ -1,15 +1,15 @@
 import React from "react";
-import { cn } from "@/lib/utils";
-import { Field } from "@/types/api";
-import { Form } from "@/components/common/form/form";
-import { useShowPassword } from "@/hooks/use-show-password";
-import { FormFooter } from "@/features/auth/components/form-footer";
-import { PasswordInput } from "@/components/common";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { useShowPassword } from "@/hooks/use-show-password";
+import { Form } from "@/components/common/form/form";
+import { PasswordInput } from "@/components/common";
+import { SocialFooter } from "./social-footer";
 import { useAuth } from "@/hooks/use-auth";
+import { Field } from "@/shared/types";
+import { cn } from "@/lib/utils";
 import { z } from "zod";
 
-export const signupSchema = z
+const signupSchema = z
   .object({
     email: z.string().email({ message: "Invalid email address" }),
     password: z
@@ -26,7 +26,7 @@ export const signupSchema = z
     path: ["confirmPassword"],
   });
 
-export type SignupSchema = z.infer<typeof signupSchema>;
+type SignupSchema = z.infer<typeof signupSchema>;
 
 export function SignupForm({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
   const { signup } = useAuth();
@@ -64,7 +64,7 @@ export function SignupForm({ className, ...props }: React.ComponentPropsWithoutR
         </CardContent>
 
         <CardFooter>
-          <FormFooter />
+          <SocialFooter />
         </CardFooter>
       </Card>
     </div>

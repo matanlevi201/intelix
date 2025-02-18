@@ -1,8 +1,8 @@
 import { Dialog, DialogContent, DialogFooter, DialogHeader } from "@/components/ui/dialog";
-import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from "@/components/ui/input-otp";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import { Button } from "@/components/ui/button";
-import { BaseModalProps } from "@/types";
+import { BaseModalProps } from "@/shared/types";
+import { OtpInput } from "@/components/common";
 import { use2fa } from "@/hooks/use-2fa";
 
 export const ModalDisable2FA = ({ open, closeModal }: BaseModalProps) => {
@@ -17,19 +17,8 @@ export const ModalDisable2FA = ({ open, closeModal }: BaseModalProps) => {
             </div>
           </DialogTitle>
         </DialogHeader>
-        <InputOTP maxLength={6} onChange={(v) => setOtp(v)}>
-          <InputOTPGroup>
-            <InputOTPSlot index={0} />
-            <InputOTPSlot index={1} />
-            <InputOTPSlot index={2} />
-          </InputOTPGroup>
-          <InputOTPSeparator />
-          <InputOTPGroup>
-            <InputOTPSlot index={3} />
-            <InputOTPSlot index={4} />
-            <InputOTPSlot index={5} />
-          </InputOTPGroup>
-        </InputOTP>
+
+        <OtpInput onChange={(v) => setOtp(v)} />
 
         <DialogFooter>
           <Button onClick={disable} className="w-full">
