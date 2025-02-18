@@ -1,20 +1,20 @@
 import React from "react";
-import { cn } from "@/lib/utils";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Form } from "@/components/common/form/form";
 import { useShowPassword } from "@/hooks/use-show-password";
-import { Link } from "react-router-dom";
-import { FormFooter } from "./form-footer";
+import { Form } from "@/components/common/form/form";
+import { SocialFooter } from "./social-footer";
 import { useAuth } from "@/hooks/use-auth";
-import { Field } from "@/types/api";
+import { Link } from "react-router-dom";
+import { Field } from "@/shared/types";
+import { cn } from "@/lib/utils";
 import { z } from "zod";
 
-export const signinSchema = z.object({
+const signinSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
   password: z.string().min(1, "Field is required."),
 });
 
-export type SigninSchema = z.infer<typeof signinSchema>;
+type SigninSchema = z.infer<typeof signinSchema>;
 
 export function SigninForm({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
   const { signin } = useAuth();
@@ -52,7 +52,7 @@ export function SigninForm({ className, ...props }: React.ComponentPropsWithoutR
         </CardContent>
 
         <CardFooter>
-          <FormFooter />
+          <SocialFooter />
         </CardFooter>
       </Card>
     </div>

@@ -1,4 +1,4 @@
-import { ErrorResponse, RequestProps, RequestResponse } from "@/types";
+import { ErrorResponse, RequestProps, RequestResponse } from "@/shared/types";
 import api from "./api-client";
 import axios from "axios";
 

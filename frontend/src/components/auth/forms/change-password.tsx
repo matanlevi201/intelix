@@ -3,11 +3,11 @@ import { useShowPassword } from "@/hooks/use-show-password";
 import { Card, CardContent } from "@/components/ui/card";
 import { PasswordInput } from "@/components/common";
 import { usePassword } from "@/hooks/use-password";
-import { Field } from "@/types/api";
+import { Field } from "@/shared/types";
 import { cn } from "@/lib/utils";
 import { z } from "zod";
 
-export const changePasswordSchema = z
+const changePasswordSchema = z
   .object({
     currentPassword: z.string({ message: "Field is required." }),
     newPassword: z
@@ -24,7 +24,7 @@ export const changePasswordSchema = z
     path: ["confirmPassword"],
   });
 
-export type ChangePasswordSchema = z.infer<typeof changePasswordSchema>;
+type ChangePasswordSchema = z.infer<typeof changePasswordSchema>;
 
 export function ChangePasswordForm({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
   const { changePassword } = usePassword();

@@ -2,10 +2,10 @@ import { disable2fa, enable2fa, verify2fa, generate2faQr } from "@/api";
 import { useModalsStore } from "@/context/use-modals-store";
 import { useSessionStore } from "@/context/use-session-store";
 import { Notifications } from "@/lib/notifications";
-import { ModalTypes } from "@/types";
+import { EModals } from "@/shared/enums";
 import { useState } from "react";
 
-export interface Use2FAReturn {
+interface Use2FAReturn {
   otp: string;
   setOtp: (value: string) => void;
   enable: () => Promise<void>;
@@ -53,11 +53,11 @@ export const use2fa = (): Use2FAReturn => {
     if (!result.success) {
       return Notifications.errors(result.errors);
     }
-    setActiveModal({ activeModal: ModalTypes.MODAL_ENABLE_2FA, modalProps: { qrCode: result.data.qr } });
+    setActiveModal({ activeModal: EModals.MODAL_ENABLE_2FA, modalProps: { qrCode: result.data.qr } });
   };
 
   const openDisableModal = async () => {
-    setActiveModal({ activeModal: ModalTypes.MODAL_DISABLE_2FA });
+    setActiveModal({ activeModal: EModals.MODAL_DISABLE_2FA });
   };
 
   return { otp, setOtp, enable, verify, disable, openEnableModal, openDisableModal };

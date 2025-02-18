@@ -3,7 +3,7 @@ import { ChangePasswordBody, ForgotPasswordBody, ResetPasswordBody } from "@inte
 import { Notifications } from "@/lib/notifications";
 import { useNavigate } from "react-router-dom";
 
-export interface UsePassword {
+interface UsePassword {
   changePassword: ({ currentPassword, newPassword }: ChangePasswordBody) => Promise<void>;
   forgotPassword: ({ email }: ForgotPasswordBody) => Promise<void>;
   resetPassword: ({ resetToken, password }: ResetPasswordBody) => Promise<void>;

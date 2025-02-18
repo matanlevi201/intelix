@@ -1,6 +1,6 @@
 import { ModalEnable2FA, ModalDisable2FA } from "@/components/common";
 import { useModalsStore } from "@/context/use-modals-store";
-import { ModalTypes } from "@/types";
+import { EModals } from "@/shared/enums";
 
 export function ModalManager() {
   const { closeModal, settings } = useModalsStore();
@@ -9,8 +9,8 @@ export function ModalManager() {
 
   return (
     <>
-      {activeModal === ModalTypes.MODAL_ENABLE_2FA && <ModalEnable2FA open={true} closeModal={closeModal} {...modalProps} />}
-      {activeModal === ModalTypes.MODAL_DISABLE_2FA && <ModalDisable2FA open={true} closeModal={closeModal} />}
+      {activeModal === EModals.MODAL_ENABLE_2FA && <ModalEnable2FA open={true} closeModal={closeModal} {...modalProps} />}
+      {activeModal === EModals.MODAL_DISABLE_2FA && <ModalDisable2FA open={true} closeModal={closeModal} />}
     </>
   );
 }

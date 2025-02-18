@@ -4,7 +4,7 @@ import { Notifications } from "@/lib/notifications";
 import { useNavigate } from "react-router-dom";
 import { SignBody } from "@intelix/common";
 
-export interface UseAuth {
+interface UseAuth {
   signup: ({ email, password }: SignBody) => Promise<void>;
   signin: ({ email, password }: SignBody) => Promise<void>;
   signout: () => Promise<void>;
