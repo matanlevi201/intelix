@@ -19,7 +19,7 @@ export type BaseModalProps = {
 };
 
 export type ModalPropsMap = {
-  [EModals.MODAL_ADD_AGENT]: null;
+  [EModals.MODAL_ADD_AGENT]: { form: Record<string, any>[] };
   [EModals.MODAL_ENABLE_2FA]: { qrCode: string };
   [EModals.MODAL_DISABLE_2FA]: null;
   default: Record<string, any> | null;
@@ -28,7 +28,7 @@ export type ModalPropsMap = {
 export type ModalPropInferer =
   | {
       activeModal: EModals.MODAL_ADD_AGENT;
-      modalProps?: ModalPropsMap[EModals.MODAL_ADD_AGENT];
+      modalProps: ModalPropsMap[EModals.MODAL_ADD_AGENT];
     }
   | {
       activeModal: EModals.MODAL_ENABLE_2FA;
@@ -48,6 +48,7 @@ export type Field<K extends FieldValues> = {
   type?: string;
   label?: string;
   placeholder?: string;
+  description?: string;
   defaultValue?: any;
   render?: ControllerProps<K>["render"];
   leftSection?: React.ReactNode;

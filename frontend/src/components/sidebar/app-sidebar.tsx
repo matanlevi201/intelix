@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Bot, GalleryVerticalEnd } from "lucide-react";
+import { Bot, GalleryVerticalEnd, LayoutDashboard, Workflow } from "lucide-react";
 
 import { NavMain } from "@/components/sidebar/nav-main";
 import { NavUser } from "@/components/sidebar/nav-user";
@@ -20,12 +20,17 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       {
         title: "Dashboard",
         url: "/",
-        icon: Bot,
+        icon: LayoutDashboard,
       },
       {
         title: "Models",
         url: "/models",
         icon: Bot,
+      },
+      {
+        title: "Workflows",
+        url: "/workflows",
+        icon: Workflow,
       },
     ],
   };
