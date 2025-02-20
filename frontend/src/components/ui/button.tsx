@@ -42,7 +42,7 @@ Button.displayName = "Button";
 
 const IconButton = React.forwardRef<HTMLButtonElement, ButtonProps>(({ className, variant = "ghost", size = "icon", asChild = false, ...props }, ref) => {
   const Comp = asChild ? Slot : "button";
-  return <Comp className={cn(buttonVariants({ variant, size, className }), "w-full h-full")} ref={ref} {...props} />;
+  return <Comp className={cn(buttonVariants({ variant, size, className }), "w-full h-full", className)} ref={ref} {...props} />;
 });
 Button.displayName = "IconButton";
 
